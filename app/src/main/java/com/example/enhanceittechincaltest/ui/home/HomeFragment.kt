@@ -13,6 +13,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModelProvider
 import com.example.enhanceittechincaltest.base.FragmentBase
 import com.example.enhanceittechincaltest.base.app.AppID
+import com.example.enhanceittechincaltest.data.domain.tvshow.model.getNoOfDaysSincePriemere
 import com.example.enhanceittechincaltest.databinding.FragmentHomeBinding
 import com.example.enhanceittechincaltest.utils.api.picasso.PicassoCache
 import com.example.enhanceittechincaltest.utils.core.extensions.observeFlow
@@ -136,7 +137,10 @@ class HomeFragment : FragmentBase() {
 //                    transformations(RoundedCornersTransformation(25f))
 //                }
                 binding.fragHomeLTvName.text = detail.name
-                binding.fragHomeLTvDateOfPremiere.text = detail.premiered.toString()
+//                binding.fragHomeLTvDateOfPremiere.text =
+//                    detail.premiered.toString()
+                binding.fragHomeLTvDateOfPremiere.text =
+                    detail.getNoOfDaysSincePriemere()+" since premiere"
             }
 //            is DetailContract.State.Detail -> {
 //                adapter.setItems(viewState.list)
