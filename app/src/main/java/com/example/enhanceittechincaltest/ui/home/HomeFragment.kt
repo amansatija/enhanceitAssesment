@@ -140,7 +140,7 @@ class HomeFragment : FragmentBase() {
 //                binding.fragHomeLTvDateOfPremiere.text =
 //                    detail.premiered.toString()
                 binding.fragHomeLTvDateOfPremiere.text =
-                    detail.getNoOfDaysSincePriemere()+" since premiere"
+                    ""+detail.getNoOfDaysSincePriemere()+" Days since premiere"
             }
 //            is DetailContract.State.Detail -> {
 //                adapter.setItems(viewState.list)

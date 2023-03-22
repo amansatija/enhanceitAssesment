@@ -7,5 +7,5 @@ import kotlin.collections.ArrayList
 data class ModelTvShow(var id:Int,
                        var name:String,
                        var premiered: Date,
-                       var image:ModelResTvShowImage) {
+                       var image:ModelTvShowImage) {
 }

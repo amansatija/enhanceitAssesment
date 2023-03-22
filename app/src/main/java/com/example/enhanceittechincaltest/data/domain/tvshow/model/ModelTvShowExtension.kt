@@ -10,7 +10,7 @@ fun ModelResTvShows.toDomainModel()=ModelTvShow(
     id,
     name,
     premiered,
-    image
+    image.toDomainModel()
 )
 
 fun Resource<ModelResTvShows>.toDomainModel()=Resource<ModelTvShow>(
@@ -20,5 +20,5 @@ fun Resource<ModelResTvShows>.toDomainModel()=Resource<ModelTvShow>(
 
 
 fun ModelTvShow.getNoOfDaysSincePriemere() = run {
-    ""+(((((Date().time-premiered.time)/1000)/60)/60)/24)+" Days"
+    (((((Date().time-premiered.time)/1000)/60)/60)/24)
 }
