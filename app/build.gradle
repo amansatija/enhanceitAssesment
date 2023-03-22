@@ -60,6 +60,10 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 
     ///added by aman
+//    def coroutines_version = "1.3.9"
+//    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutines_version"
+//    testImplementation "io.mockk:mockk:1.12.1"
+
 
     //jetpack room
 //    def room_version = "2.5.0"
