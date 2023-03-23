@@ -13,6 +13,7 @@
     android:padding="8dp"
     app:layout_constraintLeft_toLeftOf="parent"
     android:hint="query"
+    android:text="girls"
     app:layout_constraintTop_toTopOf="parent"/>
 
     <androidx.appcompat.widget.AppCompatImageView
