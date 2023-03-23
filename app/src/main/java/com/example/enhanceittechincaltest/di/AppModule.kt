@@ -2,7 +2,7 @@ package com.example.enhanceittechincaltest.di
 
 import android.content.Context
 import com.example.enhanceittechincaltest.di.providers.NavigationProvider
-import com.example.enhanceittechincaltest.RepoTvShows
+import com.example.enhanceittechincaltest.data.domain.tvshow.RepoTvShows
 import com.example.enhanceittechincaltest.base.app.AppConfig
 import com.example.enhanceittechincaltest.base.app.AppID
 import com.example.enhanceittechincaltest.data.domain.tvshow.SearchTvShowsUseCase

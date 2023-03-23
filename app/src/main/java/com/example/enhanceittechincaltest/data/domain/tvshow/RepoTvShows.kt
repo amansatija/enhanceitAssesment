@@ -1,4 +1,4 @@
-package com.example.enhanceittechincaltest
+package com.example.enhanceittechincaltest.data.domain.tvshow
 
 import com.example.enhanceittechincaltest.data.remote.TvShowRemoteDataSource
 import com.example.enhanceittechincaltest.data.remote.tvshow.ModelResTvShows
