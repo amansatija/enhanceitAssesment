@@ -6,22 +6,19 @@ import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import androidx.fragment.app.Fragment
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.ViewModelProvider
+import com.example.enhanceittechincaltest.R
 import com.example.enhanceittechincaltest.base.FragmentBase
-import com.example.enhanceittechincaltest.base.app.AppID
+import com.example.enhanceittechincaltest.data.domain.tvshow.model.ModelTvShow
 import com.example.enhanceittechincaltest.data.domain.tvshow.model.getNoOfDaysSincePriemere
 import com.example.enhanceittechincaltest.databinding.FragmentHomeBinding
 import com.example.enhanceittechincaltest.utils.api.picasso.PicassoCache
 import com.example.enhanceittechincaltest.utils.core.extensions.observeFlow
-import com.example.enhanceittechincaltest.utils.core.extensions.observeFlowStart
-import com.example.enhanceittechincaltest.utils.core.extensions.observeLiveData
+import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
 import dagger.hilt.android.AndroidEntryPoint
-import kotlin.reflect.KFunction1
+import java.lang.Exception
 
 @AndroidEntryPoint
 class HomeFragment : FragmentBase() {
@@ -130,9 +127,8 @@ class HomeFragment : FragmentBase() {
         when (viewState) {
             is HomePageContract.State.HomePageData -> {
                 val detail = viewState.detail
-                PicassoCache.getPicassoInstance(activity)
-                    .load(detail.image.medium).into(binding.fragHomeLIvImg)
 
+                loadMovieImage(detail)
 //                binding.fragHomeLIvImg.load(detail.image.orEmpty()) {
 //                    transformations(RoundedCornersTransformation(25f))
 //                }
@@ -146,6 +142,23 @@ class HomeFragment : FragmentBase() {
 //                adapter.setItems(viewState.list)
 //            }
         }
+    }
+
+    private fun loadMovieImage(tvShowDetail:ModelTvShow){
+        val piccasoReq = PicassoCache.getPicassoInstance(activity)
+            .load(tvShowDetail.image.medium)
+        activity?.let {
+            piccasoReq.placeholder(ContextCompat.getDrawable(requireActivity(), R.drawable.ic_png_placeholder_img_24dp)!!)
+        }
+        piccasoReq.into(binding.fragHomeLIvImg,object:Callback{
+            override fun onSuccess() {
+                PicassoCache.getPicassoInstance(activity)
+                    .load(tvShowDetail.image.original).placeholder(binding.fragHomeLIvImg.drawable).into(binding.fragHomeLIvImg)
+            }
+            override fun onError(e: Exception?) {
+                e?.printStackTrace()
+            }
+        })
     }
 
     override fun onDestroyView() {
