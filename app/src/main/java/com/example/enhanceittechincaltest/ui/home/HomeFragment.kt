@@ -110,11 +110,14 @@ class HomeFragment : FragmentBase() {
         binding.fragHomeLIvImg.visibility = View.GONE
         binding.fragHomeLTvName.visibility = View.GONE
         binding.fragHomeLTvDateOfPremiere.visibility = View.GONE
+        doOnDataNotFound()
     }
     fun showUi(){
         binding.fragHomeLIvImg.visibility = View.VISIBLE
         binding.fragHomeLTvName.visibility = View.VISIBLE
         binding.fragHomeLTvDateOfPremiere.visibility = View.VISIBLE
+        doOnDataFound()
+
     }
 
 
